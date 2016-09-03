@@ -13,6 +13,7 @@ RUN apt-get update \
 RUN mkdir -p /opt/clean
 WORKDIR /opt/clean
 
+ENV CLEAN_HOME /opt/clean
 ENV PATH /opt/clean/bin:/opt/clean/exe:$PATH
 
 ENTRYPOINT ["clm"]
