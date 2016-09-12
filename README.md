@@ -13,10 +13,10 @@ should not be used separately.
 
 ## How to use
 
-Simply run `clm`:
+Simply run `clm` (or `cpm`, in newer releases):
 
 ```
-docker run -v /my/.../directory:/root camilstaps/clean MainModule
+docker run -v /my/.../directory:/root camilstaps/clean clm MainModule
 ```
 
   
@@ -27,7 +27,7 @@ FROM camilstaps/clean:2.4-stable
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN clm MainModule -o MainModule
-CMD ["./MainModule"]
+CMD ["clm", "./MainModule"]
 ```
 
 ## Source code

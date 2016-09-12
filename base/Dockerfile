@@ -16,5 +16,4 @@ WORKDIR /opt/clean
 ENV CLEAN_HOME /opt/clean
 ENV PATH /opt/clean/bin:/opt/clean/exe:$PATH
 
-ENTRYPOINT ["clm"]
-CMD ["-h"]
+CMD ["clm", "-h"]
