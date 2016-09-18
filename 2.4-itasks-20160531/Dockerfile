@@ -7,7 +7,7 @@ RUN apt-get update \
 	&& apt-get clean && apt-get autoclean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN curl -sSL ftp://ftp.cs.ru.nl/pub/Clean/nightly/clean-itasks-linux64-20160531.tar.gz \
+RUN curl -sSL http://ftp.cs.ru.nl/Clean/nightly/clean-itasks-linux64-20160531.tar.gz \
 	 | tar --strip-components=1 -xz \
 	&& make
 
