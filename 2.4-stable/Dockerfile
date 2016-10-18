@@ -2,10 +2,8 @@ FROM camilstaps/clean:base
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		subversion ca-certificates\
-	&& apt-get clean && apt-get autoclean \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get install -qq \
+		subversion ca-certificates
 
 RUN curl -sSL http://clean.cs.ru.nl/download/Clean24/linux/clean2.4_64.tar.gz \
 	 | tar --strip-components=1 -xz \
