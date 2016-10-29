@@ -1,13 +1,11 @@
 FROM camilstaps/clean:base
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
-RUN apt-get update \
-	&& apt-get install -qq \
-		subversion ca-certificates git
+RUN apt-get update && apt-get install -qq subversion ca-certificates git
 
 # Install Clean
 RUN curl -sSL http://ftp.cs.ru.nl/Clean/nightly/clean-itasks-linux64-20161024.tar.gz \
-	 | tar --strip-components=1 -xz \
+		| tar --strip-components=1 -xz \
 	&& make
 
 # Latest clm

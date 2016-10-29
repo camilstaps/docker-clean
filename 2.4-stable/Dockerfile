@@ -1,14 +1,14 @@
 FROM camilstaps/clean:base
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
-RUN apt-get update \
-	&& apt-get install -qq \
-		subversion ca-certificates
+RUN apt-get update && apt-get install -qq subversion ca-certificates
 
+# Install Clean
 RUN curl -sSL http://clean.cs.ru.nl/download/Clean24/linux/clean2.4_64.tar.gz \
-	 | tar --strip-components=1 -xz \
+		| tar --strip-components=1 -xz \
 	&& make
 
+# Latest clm
 RUN cd /tmp\
 	&& svn co https://svn.cs.ru.nl/repos/clean-tools/trunk/clm\
 	&& cd clm\
