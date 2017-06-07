@@ -3,7 +3,7 @@ MAINTAINER Camil Staps <info@camilstaps.nl>
 
 RUN PACKAGES="curl gcc make subversion ca-certificates" \
 	&& apt-get update \
-	&& apt-get install -qq $PACKAGES \
+	&& apt-get install -qq $PACKAGES --no-install-recommends \
 # Install Clean
 	&& curl -sSL http://ftp.cs.ru.nl/Clean/nightly/clean-itasks-linux64-20161024.tar.gz \
 		| tar --strip-components=1 -xz \
@@ -19,8 +19,8 @@ RUN PACKAGES="curl gcc make subversion ca-certificates" \
 	&& cd /opt/clean \
 	&& rm -r /tmp/clm \
 # clean up
-	&& ADDED_PACKAGES=`apt-mark showauto` \
-	&& apt-get remove --purge -qq $PACKAGES $ADDED_PACKAGES \
+	&& apt-get remove --purge $PACKAGES -qq \
+	&& apt-get autoremove --purge -qq \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app
