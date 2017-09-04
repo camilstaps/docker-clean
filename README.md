@@ -39,6 +39,9 @@ RUN clm MainModule -o MainModule
 CMD ["./MainModule"]
 ```
 
+These images are based on Debian Stretch with GCC 6, which means that you will
+usually have to add `-l -no-pie` to the `clm` options.
+
 ## Source code
 
 [github.com/camilstaps/docker-clean](https://github.com/camilstaps/docker-clean)
