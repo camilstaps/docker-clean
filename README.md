@@ -37,7 +37,12 @@ FROM camilstaps/clean:nightly
 RUN install_clean.sh bundle-complete 2017-10-03
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN clm MainModule -o MainModule
+RUN apt-get update -qq &&\
+	apt-get install --no-install-recommends -qq gcc &&\
+	clm MainModule -o MainModule &&\
+	apt-get remove --purge -qq gcc &&\
+	apt-get autoremove --purge -qq &&\
+	&& rm -rf /var/lib/apt/lists
 CMD ["./MainModule"]
 ```
 
