@@ -12,9 +12,10 @@ export CLEANDATE="$DATE"
 PACKAGES="gcc make subversion git ca-certificates curl rsync"
 apt-get update -qq
 apt-get install -qq $PACKAGES --no-install-recommends
+rm -rf /var/lib/apt/lists/*
 
 cd /tmp
-git clone -b build-by-date https://gitlab.science.ru.nl/cstaps/clean-build
+git clone https://gitlab.science.ru.nl/clean-and-itasks/clean-build
 cd "clean-build/clean-$TARGET/linux-x64"
 
 ./fetch.sh
@@ -24,7 +25,3 @@ mv "target/clean-$TARGET" /opt/clean
 
 cd /tmp
 rm -rf clean-build
-
-apt-get remove --purge $PACKAGES -qq
-apt-get autoremove --purge -qq
-rm -rf /var/lib/apt/lists/*

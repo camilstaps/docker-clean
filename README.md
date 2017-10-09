@@ -14,13 +14,15 @@ separately.
 
 ## How to use
 
-Simply run `clm`:
+### `clm`
 
 ```Dockerfile
 docker run -v /my/.../directory:/root camilstaps/clean clm MainModule
 ```
 
-Deriving a new Dockerfile:
+### Deriving a new Dockerfile
+
+This builds a docker image in which `MainModule` is built and then run.
 
 ```Dockerfile
 FROM camilstaps/clean:2.4-stable
@@ -30,19 +32,19 @@ RUN clm MainModule -o MainModule
 CMD ["./MainModule"]
 ```
 
-Deriving a new Dockerfile with a nightly:
+### Deriving a new Dockerfile with a nightly
+
+This builds a docker image in which `MainModule` is built and then run.
+By combining the `[un]install_clean.sh` and the `clm` calls in one `RUN`
+command, we save space in the Docker cache.
 
 ```Dockerfile
 FROM camilstaps/clean:nightly
-RUN install_clean.sh bundle-complete 2017-10-03
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN apt-get update -qq &&\
-	apt-get install --no-install-recommends -qq gcc &&\
+RUN install_clean.sh bundle-complete 2017-10-03 &&\
 	clm MainModule -o MainModule &&\
-	apt-get remove --purge -qq gcc &&\
-	apt-get autoremove --purge -qq &&\
-	&& rm -rf /var/lib/apt/lists
+	uninstall_clean.sh
 CMD ["./MainModule"]
 ```
 
