@@ -7,7 +7,9 @@
 TARGET="$1"
 DATE="$2"
 
-export CLEANDATE="$DATE"
+if [ "$DATE" != "" ]; then
+	export CLEANDATE="$DATE"
+fi
 
 PACKAGES="gcc make subversion git ca-certificates curl rsync"
 apt-get update -qq
