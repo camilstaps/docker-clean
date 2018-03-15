@@ -11,6 +11,10 @@ if [ "$DATE" != "" ]; then
 	export CLEANDATE="$DATE"
 fi
 
+if [ "$PLATFORM" == "" ]; then
+	export PLATFORM="linux-x64"
+fi
+
 PACKAGES="gcc make subversion git ca-certificates curl rsync"
 apt-get update -qq
 apt-get install -qq $PACKAGES --no-install-recommends
@@ -18,7 +22,7 @@ rm -rf /var/lib/apt/lists/*
 
 cd /tmp
 git clone https://gitlab.science.ru.nl/clean-and-itasks/clean-build
-cd "clean-build/clean-$TARGET/linux-x64"
+cd "clean-build/clean-$TARGET/$PLATFORM"
 
 ./fetch.sh
 ./setup.sh
