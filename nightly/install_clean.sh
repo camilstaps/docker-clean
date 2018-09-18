@@ -18,17 +18,16 @@ rm -rf /var/lib/apt/lists/*
 
 cd /tmp
 git clone https://gitlab.science.ru.nl/clean-and-itasks/clean-build
-sed -i 's/\.\/build\.sh/.\/build.sh || true/' clean-build/generic/setup.sh
+cd clean-build
 
 for TARGET in $TARGETS
 do
-	(cd "clean-build/clean-$TARGET/linux-x64"
+	./generic/fetch.sh clean-$TARGET linux x64
+	./generic/setup.sh clean-$TARGET linux x64
+	./generic/build.sh clean-$TARGET linux x64
 
-		./fetch.sh
-		./setup.sh
-		./build.sh
-
-		rsync -r target/clean-$TARGET/* /opt/clean)
+	rsync -r target/clean-$TARGET/* /opt/clean
 done
 
+cd /tmp
 rm -rf clean-build
