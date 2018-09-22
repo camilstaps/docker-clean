@@ -5,7 +5,7 @@ RUN PACKAGES="curl gcc make subversion ca-certificates" \
 	&& apt-get update \
 	&& apt-get install -qq $PACKAGES --no-install-recommends \
 # Install Clean
-	&& curl -sSL http://clean.cs.ru.nl/download/Clean24/linux/clean2.4_64.tar.gz \
+	&& curl -sSL https://ftp.cs.ru.nl/Clean/Clean24/linux/clean2.4_64.tar.gz \
 		| tar --strip-components=1 -xz \
 	&& make \
 # Latest clm

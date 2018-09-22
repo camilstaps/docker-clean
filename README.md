@@ -4,10 +4,12 @@ Dockerfiles for [Clean](http://clean.cs.ru.nl).
 
 ## Available tags
 
-* `latest`, `2.4-stable` (Linux 64-bit, 'stable release' without iTasks but
-  with a development version of `clm` to support hierarchical module names)
+* `2.4-stable` (2011 stable release, without iTasks but with a development
+  version of `clm` to support hierarchical module names)
+* `3.0-stable` (2018 stable release, without iTasks)
 * `nightly` (includes an `install_clean.sh` script which can be used to get a
   nightly for a specific date` - see below how to derive a Dockerfile for this)
+* `latest` is an alias for the latest stable release, currently `3.0-stable`
 
 `camilstaps/clean:base` is a bootstrap container and should not be used
 separately.
