@@ -5,7 +5,7 @@ RUN PACKAGES="curl gcc make ca-certificates" \
 	&& apt-get update \
 	&& apt-get install -qq $PACKAGES --no-install-recommends \
 # Install Clean
-	&& curl -sSL https://ftp.cs.ru.nl/Clean/Clean30/linux/clean3.0_64_rc.tar.gz \
+	&& curl -sSL https://ftp.cs.ru.nl/Clean/Clean30/linux/clean3.0_64.tar.gz \
 		| tar --strip-components=1 -xz \
 	&& make \
 # clean up
