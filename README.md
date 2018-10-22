@@ -54,6 +54,6 @@ CMD ["./MainModule"]
 
 [github.com/camilstaps/docker-clean](https://github.com/camilstaps/docker-clean)
 
-## Docker Hub
+## Docker Cloud
 
-[hub.docker.com/r/camilstaps/clean](https://hub.docker.com/r/camilstaps/clean)
+[cloud.docker.com/repository/docker/camilstaps/clean](https://cloud.docker.com/repository/docker/camilstaps/clean)
