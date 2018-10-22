@@ -17,10 +17,9 @@ apt-get install -qq $PACKAGES --no-install-recommends
 rm -rf /var/lib/apt/lists/*
 
 cd /tmp
-git clone https://gitlab.science.ru.nl/clean-and-itasks/clean-build
+git clone --branch docker https://gitlab.science.ru.nl/clean-and-itasks/clean-build
 cd clean-build
-git checkout docker
-sed -i 's/\(build\.sh.*\)$/\1 || true/' generic/setup.sh
+[ ! -z "$PATCHCLEANBUILD" ] && eval $PATCHCLEANBUILD
 
 for TARGET in $TARGETS
 do
