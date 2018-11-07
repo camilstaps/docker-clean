@@ -1,9 +1,10 @@
 FROM camilstaps/clean:base
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
-RUN PACKAGES="curl gcc make ca-certificates" \
+RUN PACKAGES="curl make subversion ca-certificates" \
+	PERSISTENT_PACKAGES="gcc" \
 	&& apt-get update \
-	&& apt-get install -qq $PACKAGES --no-install-recommends \
+	&& apt-get install -qq $PACKAGES $PERSISTENT_PACKAGES --no-install-recommends \
 # Install Clean
 	&& curl -sSL https://ftp.cs.ru.nl/Clean/Clean30/linux/clean3.0_64.tar.gz \
 		| tar --strip-components=1 -xz \
