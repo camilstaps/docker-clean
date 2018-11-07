@@ -19,7 +19,7 @@ separately.
 ### `clm`
 
 ```Dockerfile
-docker run -v /my/.../directory:/root camilstaps/clean clm MainModule
+docker run -v /my/.../directory:/usr/src/app camilstaps/clean clm MainModule
 ```
 
 ### Deriving a new Dockerfile
