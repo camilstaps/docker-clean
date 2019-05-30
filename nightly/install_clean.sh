@@ -19,6 +19,7 @@ rm -rf /var/lib/apt/lists/*
 cd /tmp
 git clone --branch docker https://gitlab.science.ru.nl/clean-and-itasks/clean-build
 cd clean-build
+[ ! -z "$CLEANDATE" ] && git checkout `git rev-list -n 1 --before="$CLEANDATE" docker`
 [ ! -z "$PATCHCLEANBUILD" ] && eval $PATCHCLEANBUILD
 
 for TARGET in $TARGETS
