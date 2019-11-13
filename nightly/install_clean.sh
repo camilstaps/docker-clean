@@ -11,7 +11,7 @@ if [ "$DATE" != "" ]; then
 	export CLEANDATE="$DATE"
 fi
 
-PACKAGES="gcc make subversion git ca-certificates curl rsync"
+PACKAGES="gcc make subversion git ca-certificates curl rsync unzip"
 apt-get update -qq
 apt-get install -qq $PACKAGES --no-install-recommends
 rm -rf /var/lib/apt/lists/*
