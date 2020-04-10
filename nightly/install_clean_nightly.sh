@@ -10,6 +10,9 @@ echo "WARNING: make sure this image does not get cached by Docker to ensure you 
 echo
 
 PACKAGES="ca-certificates curl"
+if [[ "$CLEAN_PLATFORM" == "x86" ]]; then
+	PACKAGES="$PACKAGES libc6-i386"
+fi
 apt-get update -qq
 apt-get install -qq $PACKAGES --no-install-recommends
 rm -rf /var/lib/apt/lists/*
