@@ -27,6 +27,6 @@ if [[ -z "$CLEAN_PLATFORM" ]]; then
 fi
 
 for TARGET in $@; do
-	curl https://ftp.cs.ru.nl/Clean/builds/linux-x64/clean-$TARGET-$CLEAN_OS-$CLEAN_PLATFORM-latest.tgz \
+	curl https://ftp.cs.ru.nl/Clean/builds/$CLEAN_OS-$CLEAN_PLATFORM/clean-$TARGET-$CLEAN_OS-$CLEAN_PLATFORM-latest.tgz \
 		| tar xz --strip-components=1 -C /opt/clean
 done
