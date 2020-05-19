@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
 RUN apt-get update && apt-get install -qq libc6-dev
