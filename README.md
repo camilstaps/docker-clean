@@ -11,9 +11,6 @@ Dockerfiles for [Clean](http://clean.cs.ru.nl).
   nightly for a specific date` - see below how to derive a Dockerfile for this)
 * `latest` is an alias for the latest stable release, currently `3.0-stable`
 
-`camilstaps/clean:base` is a bootstrap container and should not be used
-separately.
-
 ## How to use
 
 ### `clm`
@@ -57,3 +54,27 @@ CMD ["./MainModule"]
 ## Docker Cloud
 
 [cloud.docker.com/repository/docker/camilstaps/clean](https://cloud.docker.com/repository/docker/camilstaps/clean)
+
+## Building new images
+
+To build new images, the following steps should be performed:
+
+```bash
+docker build camilstaps/clean:base base
+docker build camilstaps/clean:2.4-stable 2.4-stable
+docker build camilstaps/clean:3.0-stable 3.0-stable
+docker build camilstaps/clean:nightly nightly
+docker tag camilstaps/clean:3.0-stable camilstaps/clean
+```
+
+Optionally, push these to the Docker Cloud:
+
+```bash
+docker push camilstaps/clean:base
+docker push camilstaps/clean:2.4-stable
+docker push camilstaps/clean:3.0-stable
+docker push camilstaps/clean:nightly
+```
+
+Do not push `camilstaps/clean:base`, it is only meant as a generic base image
+for the other images.
