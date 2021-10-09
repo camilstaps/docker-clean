@@ -9,7 +9,7 @@ echo
 echo "WARNING: make sure this image does not get cached by Docker to ensure you have the latest nightly!"
 echo
 
-PACKAGES="ca-certificates curl gcc"
+PACKAGES="curl gcc"
 if [[ "$CLEAN_PLATFORM" == "x86" ]]; then
 	PACKAGES="$PACKAGES libc6-i386"
 fi

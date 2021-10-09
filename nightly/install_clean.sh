@@ -13,7 +13,7 @@ if [ "$DATE" != "" ]; then
 	export CLEANDATE="$DATE"
 fi
 
-PACKAGES="gcc make subversion git ca-certificates curl rsync unzip"
+PACKAGES="curl gcc git make rsync subversion unzip"
 if [[ "$CLEAN_PLATFORM" == "x86" ]]; then
 	dpkg --add-architecture i386
 	PACKAGES="$PACKAGES gcc-multilib libc6-i386"
