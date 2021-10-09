@@ -1,12 +1,15 @@
 FROM debian:bullseye
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
-RUN apt-get update && apt-get install -qq libc6-dev
+RUN apt-get update && apt-get install -qq ca-certificates libc6-dev
 
 RUN mkdir -p /opt/clean
 WORKDIR /opt/clean
 
+COPY geant.pem /etc/ssl/certs/geant.pem
+RUN cat /etc/ssl/certs/geant.pem >> /etc/ssl/certs/ca-certificates.crt
+
 ENV CLEAN_HOME /opt/clean
 ENV PATH /opt/clean/bin:/opt/clean/exe:$PATH
 
-CMD ["clm", "-h"]
+CMD ["clm"]

@@ -1,7 +1,7 @@
 FROM camilstaps/clean:base
 MAINTAINER Camil Staps <info@camilstaps.nl>
 
-RUN PACKAGES="curl make subversion ca-certificates" \
+RUN PACKAGES="curl make subversion" \
 	PERSISTENT_PACKAGES="gcc" \
 	&& apt-get update \
 	&& apt-get install -qq $PACKAGES $PERSISTENT_PACKAGES --no-install-recommends \
