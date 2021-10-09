@@ -60,21 +60,21 @@ CMD ["./MainModule"]
 To build new images, the following steps should be performed:
 
 ```bash
-docker build camilstaps/clean:base base
-docker build camilstaps/clean:2.4-stable 2.4-stable
-docker build camilstaps/clean:3.0-stable 3.0-stable
-docker build camilstaps/clean:nightly nightly
+docker build -t camilstaps/clean:base base
+docker build -t camilstaps/clean:2.4-stable 2.4-stable
+docker build -t camilstaps/clean:3.0-stable 3.0-stable
+docker build -t camilstaps/clean:nightly nightly
 docker tag camilstaps/clean:3.0-stable camilstaps/clean
 ```
 
 Optionally, push these to the Docker Cloud:
 
 ```bash
-docker push camilstaps/clean:base
+docker push camilstaps/clean
 docker push camilstaps/clean:2.4-stable
 docker push camilstaps/clean:3.0-stable
 docker push camilstaps/clean:nightly
 ```
 
-Do not push `camilstaps/clean:base`, it is only meant as a generic base image
+Do not push `camilstaps/clean:base`. It is only meant as a generic base image
 for the other images.
