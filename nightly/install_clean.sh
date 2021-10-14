@@ -23,9 +23,9 @@ apt-get install -qq $PACKAGES --no-install-recommends
 rm -rf /var/lib/apt/lists/*
 
 cd /tmp
-git clone --branch docker https://gitlab.science.ru.nl/clean-and-itasks/clean-build
+git clone https://gitlab.com/camilstaps/clean-build
 cd clean-build
-[ ! -z "$CLEANDATE" ] && git checkout `git rev-list -n 1 --before="$CLEANDATE" docker`
+[ ! -z "$CLEANDATE" ] && git checkout `git rev-list -n 1 --before="$CLEANDATE" main`
 [ ! -z "$PATCHCLEANBUILD" ] && eval $PATCHCLEANBUILD
 
 if [[ -z "$CLEAN_OS" ]]; then
