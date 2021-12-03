@@ -60,7 +60,7 @@ CMD ["./MainModule"]
 To build new images, the following steps should be performed:
 
 ```bash
-docker build -t camilstaps/clean:base base
+docker build --pull --no-cache -t camilstaps/clean:base base
 docker build -t camilstaps/clean:2.4-stable 2.4-stable
 docker build -t camilstaps/clean:3.0-stable 3.0-stable
 docker build -t camilstaps/clean:nightly nightly
