@@ -2,6 +2,13 @@
 
 Dockerfiles for [Clean](http://clean.cs.ru.nl).
 
+**These images are deprecated. It is recommended that you switch to
+[Isocyanoclean](https://clean-nc.camilstaps.nl), with the
+[isocyanoclean/clean-nc](https://hub.docker.com/r/isocyanoclean/clean-nc)
+images.** For legacy Clean, you can use the
+[forked](https://gitlab.com/clean-and-itasks/docker-clean) images from
+[itasks/clean](https://hub.docker.com/r/itasks/clean).
+
 ## Available tags
 
 * `2.4-stable` (2011 stable release, without iTasks but with a development
